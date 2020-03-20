@@ -11,7 +11,7 @@ export class ApiConnectorService {
 
   tempUrl: string = 'http://dnd5eapi.co/api/ability-scores/';
 
-  getAbilityScoreList() {
+  getAbilityScoreList(): Observable<ApiList> {
     return this.http.get<ApiList>(this.tempUrl);
   }
 

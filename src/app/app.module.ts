@@ -6,12 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { ApiConnectorService } from './api-connector.service';
-import { HomeComponent } from './home/home.component';
 import { CoreService } from './core.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule, ],
-  declarations: [ AppComponent, HelloComponent, HomeComponent ],
+  declarations: [ AppComponent, HelloComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ApiConnectorService, CoreService]
 })

@@ -13,8 +13,8 @@ export class CoreService {
   abilityScoreList: AbilityScore;
 
   initializeCore() {
-    this.apiConnector.getAbilityScoreList.subscribe((data) => { 
-        this.abilityScoreList = data.results;
+    this.apiConnector.getAbilityScoreList().subscribe((data) => { 
+        data.results.reduce();
       }
     );
   }
