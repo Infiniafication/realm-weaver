@@ -9,3 +9,12 @@ export class AbilityScore {
   skills: NamedApiResource;
   url: string;
 }
+
+export enum AbilityScoreType {
+  STRENGTH = 'str',
+  DEXTERITY = 'dex',
+  CONSTITUTION = 'con',
+  INTELLIGENCE = 'int',
+  WISDOM = 'wis',
+  CHARISMA = 'cha'
+}

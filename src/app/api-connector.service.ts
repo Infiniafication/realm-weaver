@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { ApiList } from './enum/api-list';
+import { AbilityScore } from './enum/ability-score';
 
 @Injectable()
 export class ApiConnectorService {
@@ -13,6 +14,10 @@ export class ApiConnectorService {
 
   getAbilityScoreList(): Observable<ApiList> {
     return this.http.get<ApiList>(this.tempUrl);
+  }
+
+  getAbilityScoreDetails(abilityScore: string): Observable<AbilityScore> {
+    return this.http.get<AbilityScore>(this.tempUrl);
   }
 
 }
