@@ -7,10 +7,11 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { ApiConnectorService } from './api-connector.service';
 import { CoreService } from './core.service';
+import { HeroCreatorComponent } from './hero-creator/hero-creator.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule, ],
-  declarations: [ AppComponent, HelloComponent ],
+  declarations: [ AppComponent, HelloComponent, HeroCreatorComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ApiConnectorService, CoreService]
 })

@@ -10,19 +10,24 @@ export class CoreService {
 
   constructor( private apiConnector: ApiConnectorService ) { }
 
-  abilityScores: AbilityScore[];
+  _abilityScores: AbilityScore[];
 
-  initializeCore() {
-    this.apiConnector.getAbilityScoreList().subscribe((data) => { 
-        data.results.reduce();
-      }
-    );
+  async initializeCore(): Promise<boolean> {
+    // this.apiConnector.getAbilityScoreList().subscribe((data) => { 
+    //     data.results.reduce();
+    //   }
+    // );
 
     for(let item in AbilityScoreType) {
       this.apiConnector.getAbilityScoreDetails(item).subscribe((data) => { 
-          this.abilityScores.push(data);
+          this._abilityScores.push(data); // this is so wrong ~~ need to redo
         }
       );
     }
+    return true;
+  }
+
+  get abilityScores(): AbilityScore[] {
+    return this.abilityScores;
   }
 }
