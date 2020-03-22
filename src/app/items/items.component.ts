@@ -19,6 +19,7 @@ export class ItemsComponent implements OnInit {
     itemName: new FormControl(''),
   });
 
+  result = '';
 
   getItemDetails() {
     console.warn(this.itemForm.value);
