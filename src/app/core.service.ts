@@ -13,18 +13,11 @@ export class CoreService {
   _abilityScores: AbilityScore[];
 
   async initializeCore(): Promise<boolean> {
-    // this.apiConnector.getAbilityScoreList().subscribe((data) => { 
-    //     data.results.reduce();
-    //   }
-    // );
-
-    for(let item in AbilityScoreType) {
-      this.apiConnector.getAbilityScoreDetails(item).subscribe((data) => { 
-          this._abilityScores.push(data); // this is so wrong ~~ need to redo
-        }
-      );
-    }
     return true;
+  }
+
+  getItemInKg() {
+    
   }
 
   get abilityScores(): AbilityScore[] {
