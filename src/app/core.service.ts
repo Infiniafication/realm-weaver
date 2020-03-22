@@ -13,7 +13,10 @@ export class CoreService {
 
   getItemInKg(item: string): Equipment {
     let itemDetails: Equipment;
-    this.apiConnector.getEqDetails(item).subscribe( (data) => { itemDetails = data; } );
+    this.apiConnector.getEqDetails(item).subscribe((data) => { 
+      console.log(data);
+      itemDetails = data; 
+    });
 
     return itemDetails;
   }

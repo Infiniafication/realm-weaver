@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 import { CoreService } from '../core.service';
+import { Equipment } from '../enum/equipment';
 
 @Component({
   selector: 'app-items',
@@ -19,12 +21,14 @@ export class ItemsComponent implements OnInit {
     itemName: new FormControl(''),
   });
 
-  result = '';
+  result: Equipment;
 
   getItemDetails() {
     console.warn(this.itemForm.value);
 
-    this.coreService.getItemInKg(this.itemForm.value);
+    this.result = this.coreService.getItemInKg(this.itemForm.value.itemName).subscribe((data) => {
+      this.result = data; 
+    });
   }
 
 }
