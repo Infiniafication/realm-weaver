@@ -26,9 +26,14 @@ export class ItemsComponent implements OnInit {
   getItemDetails() {
     console.warn(this.itemForm.value);
 
-    this.result = this.coreService.getItemInKg(this.itemForm.value.itemName).subscribe((data) => {
+    this.coreService.getItemInKg(this.itemForm.value.itemName).subscribe((data) => {
       this.result = data; 
+      console.log(data);
     });
+  }
+
+  get resultName() {
+    return this.result.name;
   }
 
 }
