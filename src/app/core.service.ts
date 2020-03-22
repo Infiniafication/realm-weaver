@@ -2,25 +2,28 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiConnectorService } from './api-connector.service';
-import { NamedApiResource } from './enum/named-api-resource';
-import { AbilityScore, AbilityScoreType } from './enum/ability-score';
+import { Equipment } from './enum/equipment';
+// import { NamedApiResource } from './enum/named-api-resource';
+// import { AbilityScore, AbilityScoreType } from './enum/ability-score';
 
 @Injectable()
 export class CoreService {
 
   constructor( private apiConnector: ApiConnectorService ) { }
 
-  _abilityScores: AbilityScore[];
+  getItemInKg(item: string): Equipment {
+    let itemDetails: Equipment;
+    this.apiConnector.getEqDetails(item).subscribe( (data) => { itemDetails = data; } );
 
-  async initializeCore(): Promise<boolean> {
-    return true;
+    return itemDetails;
   }
 
-  getItemInKg() {
-    
-  }
+  // _abilityScores: AbilityScore[];
+  // get abilityScores(): AbilityScore[] {
+  //   return this.abilityScores;
+  // }
 
-  get abilityScores(): AbilityScore[] {
-    return this.abilityScores;
-  }
+  // async initializeCore(): Promise<boolean> {
+  //   return true;
+  // }
 }

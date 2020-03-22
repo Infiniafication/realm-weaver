@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { ApiList } from './enum/api-list';
 import { AbilityScore } from './enum/ability-score';
+import { Equipment } from './enum/equipment';
 
 @Injectable()
 export class ApiConnectorService {
@@ -18,6 +19,10 @@ export class ApiConnectorService {
 
   getAbilityScoreDetails(abilityScore: string): Observable<AbilityScore> {
     return this.http.get<AbilityScore>(this.tempUrl);
+  }
+
+  getEqDetails(item: string) {
+    return this.http.get<Equipment>(this.tempUrl);
   }
 
 }
